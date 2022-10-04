@@ -1,0 +1,26 @@
+import React, {useEffect} from 'react';
+
+const AllCycles = () => {
+
+    useEffect(() => {
+
+        const intervalID = setInterval(() => {
+            document.title = `${new Date()}`
+            console.log('actualizacion del componente');
+        }, 1000);
+
+        return () => {
+            console.log('Componente va a desaparecer');
+            document.title = "Texto detenido";
+            clearInterval(intervalID);
+        };
+    }, []);
+
+    return (
+        <div>
+            
+        </div>
+    );
+}
+
+export default AllCycles;
